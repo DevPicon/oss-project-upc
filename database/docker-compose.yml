@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: oss_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: group1Admin
+      POSTGRES_PASSWORD: Admin123
+      POSTGRES_DB: oss_project_upc_db
+    ports:
+      - "55432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+
+volumes:
+  pg_data:
