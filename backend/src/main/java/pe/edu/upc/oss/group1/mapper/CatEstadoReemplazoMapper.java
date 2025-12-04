@@ -1,4 +1,4 @@
-package pe.edu.upc.oss/group1.mapper;
+package pe.edu.upc.oss.group1.mapper;
 
 import pe.edu.upc.oss.group1.dto.catalogo.request.CatEstadoReemplazoRequest;
 import pe.edu.upc.oss.group1.dto.catalogo.response.CatEstadoReemplazoResponse;
