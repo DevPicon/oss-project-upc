@@ -4,14 +4,18 @@ services:
     container_name: oss_postgres
     restart: always
     environment:
-      POSTGRES_USER: group1Admin
-      POSTGRES_PASSWORD: Admin123
-      POSTGRES_DB: oss_project_upc_db
+      POSTGRES_USER: ossuser
+      POSTGRES_PASSWORD: osspass123
+      POSTGRES_DB: oss_db
     ports:
-      - "55432:5432"
+      - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
-      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ossuser -d oss_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   pg_data:
