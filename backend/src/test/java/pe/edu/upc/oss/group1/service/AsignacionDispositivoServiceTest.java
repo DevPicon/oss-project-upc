@@ -16,6 +16,7 @@ import pe.edu.upc.oss.group1.exception.ResourceNotFoundException;
 import pe.edu.upc.oss.group1.repository.AsignacionDispositivoRepository;
 import pe.edu.upc.oss.group1.repository.catalogo.CatEstadoAsignacionRepository;
 import pe.edu.upc.oss.group1.repository.catalogo.CatEstadoDispositivoRepository;
+import pe.edu.upc.oss.group1.entity.catalogo.CatEstadoEmpleado;
 
 import java.util.Optional;
 
@@ -58,15 +59,17 @@ class AsignacionDispositivoServiceTest {
 
     @BeforeEach
     void setUp() {
+        // Setup estado empleado
+        CatEstadoEmpleado estadoEmpleadoActivo = new CatEstadoEmpleado();
+        estadoEmpleadoActivo.setId(1);
+        estadoEmpleadoActivo.setCodigo("ACTIVO");
+        estadoEmpleadoActivo.setNombre("Activo");
+
         // Setup empleado
         empleado = new Empleado();
         empleado.setId(1);
         empleado.setCodigoEmpleado("EMP001");
-
-        // Setup dispositivo
-        dispositivo = new Dispositivo();
-        dispositivo.setId(1);
-        dispositivo.setCodigoActivo("DEVICE001");
+        empleado.setEstadoEmpleado(estadoEmpleadoActivo);
 
         // Setup estados
         estadoActiva = new CatEstadoAsignacion();
@@ -76,6 +79,19 @@ class AsignacionDispositivoServiceTest {
         estadoAsignado = new CatEstadoDispositivo();
         estadoAsignado.setId(1);
         estadoAsignado.setCodigo("ASIGNADO");
+        estadoAsignado.setDisponibleAsignacion(true); // Needed for isDisponibleParaAsignacion() check on the device before assignment? 
+        // Actually, the device needs to be in a "DISPONIBLE" state (where disponibleAsignacion=true) BEFORE assignment.
+        
+        CatEstadoDispositivo estadoDisponible = new CatEstadoDispositivo();
+        estadoDisponible.setId(2);
+        estadoDisponible.setCodigo("DISPONIBLE");
+        estadoDisponible.setDisponibleAsignacion(true);
+
+        // Setup dispositivo
+        dispositivo = new Dispositivo();
+        dispositivo.setId(1);
+        dispositivo.setCodigoActivo("DEVICE001");
+        dispositivo.setEstadoDispositivo(estadoDisponible);
 
         // Setup asignacion
         asignacion = new AsignacionDispositivo();

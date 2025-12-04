@@ -31,7 +31,7 @@ public interface DetalleDevolucionRepository extends JpaRepository<DetalleDevolu
     /**
      * Retorna detalles con una condición específica.
      */
-    @Query("SELECT d FROM DetalleDevolucion d WHERE d.condicionDevolucion.codigo = :codigoCond icion")
+    @Query("SELECT d FROM DetalleDevolucion d WHERE d.condicionDevolucion.codigo = :codigoCondicion")
     List<DetalleDevolucion> findByCondicionCodigo(@Param("codigoCondicion") String codigoCondicion);
 
     /**

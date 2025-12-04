@@ -8,16 +8,36 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Repository para operaciones de base de datos sobre CatCondicionDevolucion.
+ * Repositorio para el catálogo de condiciones de devolución.
+ * Proporciona métodos de consulta derivados automáticamente por Spring Data JPA.
  */
 @Repository
 public interface CatCondicionDevolucionRepository extends JpaRepository<CatCondicionDevolucion, Integer> {
 
+    /**
+     * Busca una condición de devolución por su código único.
+     * @param codigo código de la condición
+     * @return Optional con la condición encontrada o vacío
+     */
     Optional<CatCondicionDevolucion> findByCodigo(String codigo);
 
+    /**
+     * Verifica si existe una condición con el código dado.
+     * @param codigo código a verificar
+     * @return true si existe, false si no
+     */
     boolean existsByCodigo(String codigo);
 
+    /**
+     * Retorna solo las condiciones activas.
+     * @return lista de condiciones con activo = true
+     */
     List<CatCondicionDevolucion> findByActivoTrue();
 
+    /**
+     * Busca condiciones por nombre (búsqueda parcial, insensible a mayúsculas).
+     * @param nombre texto a buscar en el nombre
+     * @return lista de condiciones que coinciden
+     */
     List<CatCondicionDevolucion> findByNombreContainingIgnoreCase(String nombre);
 }

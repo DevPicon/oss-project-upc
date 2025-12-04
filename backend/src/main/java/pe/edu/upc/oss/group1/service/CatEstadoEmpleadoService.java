@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.oss.group1.entity.catalogo.CatEstadoEmpleado;
 import pe.edu.upc.oss.group1.exception.DuplicateResourceException;
 import pe.edu.upc.oss.group1.exception.ResourceNotFoundException;
-import pe.edu.upc.oss.group1.repository.CatEstadoEmpleadoRepository;
+import pe.edu.upc.oss.group1.repository.catalogo.CatEstadoEmpleadoRepository;
 
 import java.util.List;
 

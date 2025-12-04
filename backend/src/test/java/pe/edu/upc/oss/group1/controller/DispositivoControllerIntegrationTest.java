@@ -14,6 +14,11 @@ import pe.edu.upc.oss.group1.exception.DuplicateResourceException;
 import pe.edu.upc.oss.group1.exception.ResourceNotFoundException;
 import pe.edu.upc.oss.group1.service.DispositivoService;
 
+import pe.edu.upc.oss.group1.entity.catalogo.CatEstadoDispositivo;
+import pe.edu.upc.oss.group1.entity.catalogo.CatMarca;
+import pe.edu.upc.oss.group1.entity.catalogo.CatProveedor;
+import pe.edu.upc.oss.group1.entity.catalogo.CatTipoDispositivo;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,6 +51,26 @@ class DispositivoControllerIntegrationTest {
         dispositivo.setCodigoActivo("DEVICE001");
         dispositivo.setNumeroSerie("SN123456");
         dispositivo.setModelo("Model X");
+
+        CatTipoDispositivo tipo = new CatTipoDispositivo();
+        tipo.setId(1);
+        tipo.setNombre("Laptop");
+        dispositivo.setTipoDispositivo(tipo);
+
+        CatMarca marca = new CatMarca();
+        marca.setId(1);
+        marca.setNombre("Dell");
+        dispositivo.setMarca(marca);
+
+        CatEstadoDispositivo estado = new CatEstadoDispositivo();
+        estado.setId(1);
+        estado.setNombre("Disponible");
+        dispositivo.setEstadoDispositivo(estado);
+
+        CatProveedor proveedor = new CatProveedor();
+        proveedor.setId(1);
+        proveedor.setRazonSocial("Proveedor X");
+        dispositivo.setProveedor(proveedor);
     }
 
     @Test

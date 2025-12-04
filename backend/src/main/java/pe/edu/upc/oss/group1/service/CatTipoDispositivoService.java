@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.oss.group1.entity.catalogo.CatTipoDispositivo;
 import pe.edu.upc.oss.group1.exception.DuplicateResourceException;
 import pe.edu.upc.oss.group1.exception.ResourceNotFoundException;
-import pe.edu.upc.oss.group1.repository.CatTipoDispositivoRepository;
+import pe.edu.upc.oss.group1.repository.catalogo.CatTipoDispositivoRepository;
 
 import java.util.List;
 

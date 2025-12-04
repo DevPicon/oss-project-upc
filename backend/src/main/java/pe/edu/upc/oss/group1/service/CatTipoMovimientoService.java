@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.oss.group1.entity.catalogo.CatTipoMovimiento;
 import pe.edu.upc.oss.group1.exception.DuplicateResourceException;
 import pe.edu.upc.oss.group1.exception.ResourceNotFoundException;
-import pe.edu.upc.oss.group1.repository.CatTipoMovimientoRepository;
+import pe.edu.upc.oss.group1.repository.catalogo.CatTipoMovimientoRepository;
 
 import java.util.List;
 
