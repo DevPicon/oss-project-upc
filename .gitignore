@@ -97,6 +97,16 @@ Icon?
 *.stackdump
 
 ############################
+# Documentación
+############################
+docs/
+docs/*.md
+docs/*.png
+docs/*.jpg
+docs/*.jpeg
+docs/*.gif
+
+############################
 # Otros
 ############################
 *.bak
