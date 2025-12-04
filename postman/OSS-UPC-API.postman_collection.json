@@ -1,0 +1,1771 @@
+{
+  "info": {
+    "name": "OSS UPC - Asset Management API",
+    "description": "Colección completa de endpoints para el Sistema de Gestión de Activos y Dispositivos de la UPC - Fase 2 (Catálogos)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "{{baseUrl}}",
+      "type": "string"
+    },
+    {
+      "key": "apiVersion",
+      "value": "{{apiVersion}}",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Marcas",
+      "item": [
+        {
+          "name": "Listar todas las marcas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas"]
+            }
+          }
+        },
+        {
+          "name": "Listar marcas activas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas/activas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas", "activas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener marca por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener marca por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas/codigo/DELL",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas", "codigo", "DELL"]
+            }
+          }
+        },
+        {
+          "name": "Crear marca",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"LENOVO\",\n  \"nombre\": \"Lenovo\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar marca",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"DELL\",\n  \"nombre\": \"Dell Technologies\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar marca",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar marcas por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/marcas/buscar?nombre=Dell",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "marcas", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Dell"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Áreas",
+      "item": [
+        {
+          "name": "Listar todas las áreas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas"]
+            }
+          }
+        },
+        {
+          "name": "Listar áreas activas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas/activas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas", "activas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener área por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener área por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas/codigo/TI",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas", "codigo", "TI"]
+            }
+          }
+        },
+        {
+          "name": "Crear área",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"RRHH\",\n  \"nombre\": \"Recursos Humanos\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar área",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"TI\",\n  \"nombre\": \"Tecnologías de la Información\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar área",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar áreas por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/areas/buscar?nombre=Tecnolog",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "areas", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Tecnolog"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Puestos",
+      "item": [
+        {
+          "name": "Listar todos los puestos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos"]
+            }
+          }
+        },
+        {
+          "name": "Listar puestos activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener puesto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener puesto por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos/codigo/DEV",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos", "codigo", "DEV"]
+            }
+          }
+        },
+        {
+          "name": "Crear puesto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"ANALYST\",\n  \"nombre\": \"Analista de Sistemas\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar puesto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"DEV\",\n  \"nombre\": \"Desarrollador Senior\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar puesto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar puestos por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/puestos/buscar?nombre=Desarrollador",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "puestos", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Desarrollador"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Sedes",
+      "item": [
+        {
+          "name": "Listar todas las sedes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes"]
+            }
+          }
+        },
+        {
+          "name": "Listar sedes activas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes/activas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes", "activas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener sede por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener sede por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes/codigo/LIMA-M",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes", "codigo", "LIMA-M"]
+            }
+          }
+        },
+        {
+          "name": "Crear sede",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"AQP-C\",\n  \"nombre\": \"Arequipa - Centro\",\n  \"direccion\": \"Av. Bolognesi 123\",\n  \"ciudad\": \"Arequipa\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar sede",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"LIMA-M\",\n  \"nombre\": \"Lima - Monterrico Principal\",\n  \"direccion\": \"Av. Primavera 2390\",\n  \"ciudad\": \"Lima\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar sede",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar sedes por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/sedes/buscar?nombre=Lima",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "sedes", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Lima"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Tipos de Dispositivo",
+      "item": [
+        {
+          "name": "Listar todos los tipos de dispositivo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo"]
+            }
+          }
+        },
+        {
+          "name": "Listar tipos de dispositivo activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener tipo de dispositivo por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener tipo de dispositivo por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo/codigo/LAPTOP",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo", "codigo", "LAPTOP"]
+            }
+          }
+        },
+        {
+          "name": "Crear tipo de dispositivo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"TABLET\",\n  \"nombre\": \"Tablet\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar tipo de dispositivo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"LAPTOP\",\n  \"nombre\": \"Laptop Corporativa\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar tipo de dispositivo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar tipos de dispositivo por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-dispositivo/buscar?nombre=Laptop",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-dispositivo", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Laptop"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Estados de Dispositivo",
+      "item": [
+        {
+          "name": "Listar todos los estados de dispositivo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo"]
+            }
+          }
+        },
+        {
+          "name": "Listar estados de dispositivo activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de dispositivo por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de dispositivo por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo/codigo/DISPONIBLE",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo", "codigo", "DISPONIBLE"]
+            }
+          }
+        },
+        {
+          "name": "Crear estado de dispositivo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"MANTENIMIENTO\",\n  \"nombre\": \"En Mantenimiento\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar estado de dispositivo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"DISPONIBLE\",\n  \"nombre\": \"Disponible para Asignación\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar estado de dispositivo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar estados de dispositivo por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-dispositivo/buscar?nombre=Disponible",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-dispositivo", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Disponible"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Proveedores",
+      "item": [
+        {
+          "name": "Listar todos los proveedores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores"]
+            }
+          }
+        },
+        {
+          "name": "Listar proveedores activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener proveedor por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener proveedor por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores/codigo/PROV001",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores", "codigo", "PROV001"]
+            }
+          }
+        },
+        {
+          "name": "Crear proveedor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"PROV003\",\n  \"nombre\": \"Tech Solutions SAC\",\n  \"contacto\": \"Juan Pérez\",\n  \"telefono\": \"+51 987654321\",\n  \"email\": \"contacto@techsolutions.pe\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar proveedor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"PROV001\",\n  \"nombre\": \"Dell Peru SAC\",\n  \"contacto\": \"María García\",\n  \"telefono\": \"+51 912345678\",\n  \"email\": \"ventas@dell.pe\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar proveedor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar proveedores por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/proveedores/buscar?nombre=Dell",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "proveedores", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Dell"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Estados de Empleado",
+      "item": [
+        {
+          "name": "Listar todos los estados de empleado",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado"]
+            }
+          }
+        },
+        {
+          "name": "Listar estados de empleado activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de empleado por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de empleado por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado/codigo/ACTIVO",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado", "codigo", "ACTIVO"]
+            }
+          }
+        },
+        {
+          "name": "Crear estado de empleado",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"VACACIONES\",\n  \"nombre\": \"De Vacaciones\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar estado de empleado",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"ACTIVO\",\n  \"nombre\": \"Activo - Trabajando\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar estado de empleado",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar estados de empleado por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-empleado/buscar?nombre=Activo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-empleado", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Activo"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. Estados de Asignación",
+      "item": [
+        {
+          "name": "Listar todos los estados de asignación",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion"]
+            }
+          }
+        },
+        {
+          "name": "Listar estados de asignación activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de asignación por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de asignación por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion/codigo/ASIGNADO",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion", "codigo", "ASIGNADO"]
+            }
+          }
+        },
+        {
+          "name": "Crear estado de asignación",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"DEVUELTO\",\n  \"nombre\": \"Devuelto\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar estado de asignación",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"ASIGNADO\",\n  \"nombre\": \"Asignado al Empleado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar estado de asignación",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar estados de asignación por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-asignacion/buscar?nombre=Asignado",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-asignacion", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Asignado"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "10. Motivos de Reemplazo",
+      "item": [
+        {
+          "name": "Listar todos los motivos de reemplazo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo"]
+            }
+          }
+        },
+        {
+          "name": "Listar motivos de reemplazo activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener motivo de reemplazo por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener motivo de reemplazo por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo/codigo/FALLA",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo", "codigo", "FALLA"]
+            }
+          }
+        },
+        {
+          "name": "Crear motivo de reemplazo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"UPGRADE\",\n  \"nombre\": \"Actualización de Hardware\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar motivo de reemplazo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"FALLA\",\n  \"nombre\": \"Falla Técnica del Dispositivo\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar motivo de reemplazo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar motivos de reemplazo por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/motivos-reemplazo/buscar?nombre=Falla",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "motivos-reemplazo", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Falla"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "11. Estados de Reemplazo",
+      "item": [
+        {
+          "name": "Listar todos los estados de reemplazo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo"]
+            }
+          }
+        },
+        {
+          "name": "Listar estados de reemplazo activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de reemplazo por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de reemplazo por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo/codigo/PENDIENTE",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo", "codigo", "PENDIENTE"]
+            }
+          }
+        },
+        {
+          "name": "Crear estado de reemplazo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"COMPLETADO\",\n  \"nombre\": \"Reemplazo Completado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar estado de reemplazo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"PENDIENTE\",\n  \"nombre\": \"Pendiente de Aprobación\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar estado de reemplazo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar estados de reemplazo por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-reemplazo/buscar?nombre=Pendiente",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-reemplazo", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Pendiente"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "12. Estados de Solicitud",
+      "item": [
+        {
+          "name": "Listar todos los estados de solicitud",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud"]
+            }
+          }
+        },
+        {
+          "name": "Listar estados de solicitud activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de solicitud por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener estado de solicitud por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud/codigo/PENDIENTE",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud", "codigo", "PENDIENTE"]
+            }
+          }
+        },
+        {
+          "name": "Crear estado de solicitud",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"RECHAZADO\",\n  \"nombre\": \"Rechazado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar estado de solicitud",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"PENDIENTE\",\n  \"nombre\": \"Pendiente de Revisión\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar estado de solicitud",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar estados de solicitud por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/estados-solicitud/buscar?nombre=Pendiente",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "estados-solicitud", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Pendiente"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "13. Condiciones de Devolución",
+      "item": [
+        {
+          "name": "Listar todas las condiciones de devolución",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion"]
+            }
+          }
+        },
+        {
+          "name": "Listar condiciones de devolución activas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion/activas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion", "activas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener condición de devolución por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener condición de devolución por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion/codigo/BUENO",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion", "codigo", "BUENO"]
+            }
+          }
+        },
+        {
+          "name": "Crear condición de devolución",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"DANADO\",\n  \"nombre\": \"Dañado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar condición de devolución",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"BUENO\",\n  \"nombre\": \"Buen Estado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar condición de devolución",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar condiciones de devolución por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/condiciones-devolucion/buscar?nombre=Bueno",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "condiciones-devolucion", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Bueno"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "14. Tipos de Movimiento",
+      "item": [
+        {
+          "name": "Listar todos los tipos de movimiento",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento"]
+            }
+          }
+        },
+        {
+          "name": "Listar tipos de movimiento activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento/activos",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento", "activos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener tipo de movimiento por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener tipo de movimiento por código",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento/codigo/ASIGNACION",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento", "codigo", "ASIGNACION"]
+            }
+          }
+        },
+        {
+          "name": "Crear tipo de movimiento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"TRANSFERENCIA\",\n  \"nombre\": \"Transferencia entre Sedes\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar tipo de movimiento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"ASIGNACION\",\n  \"nombre\": \"Asignación a Empleado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar tipo de movimiento",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar tipos de movimiento por nombre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/{{apiVersion}}/catalogos/tipos-movimiento/buscar?nombre=Asignacion",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "{{apiVersion}}", "catalogos", "tipos-movimiento", "buscar"],
+              "query": [
+                {
+                  "key": "nombre",
+                  "value": "Asignacion"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
