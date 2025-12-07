@@ -11,6 +11,9 @@ import pe.edu.upc.oss.group1.exception.BusinessValidationException;
 import pe.edu.upc.oss.group1.exception.DuplicateResourceException;
 import pe.edu.upc.oss.group1.exception.ResourceNotFoundException;
 import pe.edu.upc.oss.group1.repository.DispositivoRepository;
+import pe.edu.upc.oss.group1.repository.catalogo.CatEstadoDispositivoRepository;
+import pe.edu.upc.oss.group1.entity.catalogo.CatEstadoDispositivo;
+
 
 import java.util.List;
 
@@ -25,6 +28,7 @@ import java.util.List;
 public class DispositivoService {
 
     private final DispositivoRepository dispositivoRepository;
+    private final CatEstadoDispositivoRepository catEstadoDispositivoRepository;
 
     /**
      * Retorna todos los dispositivos.
@@ -163,6 +167,26 @@ public class DispositivoService {
         existing.setValorAdquisicion(dispositivo.getValorAdquisicion());
         existing.setProveedor(dispositivo.getProveedor());
         existing.setObservaciones(dispositivo.getObservaciones());
+
+        return dispositivoRepository.save(existing);
+    }
+
+    /**
+     * Actualiza solo el estado y observación de un dispositivo.
+     */
+    public Dispositivo updateEstado(Integer id, Integer estadoId, String observacion) {
+        log.info("Actualizando estado de dispositivo ID: {} a Estado ID: {}", id, estadoId);
+
+        Dispositivo existing = findById(id);
+
+        CatEstadoDispositivo nuevoEstado = catEstadoDispositivoRepository.findById(estadoId)
+                .orElseThrow(() -> new ResourceNotFoundException("Estado de dispositivo no encontrado con ID: " + estadoId));
+
+        existing.setEstadoDispositivo(nuevoEstado);
+        
+        if (observacion != null) {
+            existing.setObservaciones(observacion);
+        }
 
         return dispositivoRepository.save(existing);
     }

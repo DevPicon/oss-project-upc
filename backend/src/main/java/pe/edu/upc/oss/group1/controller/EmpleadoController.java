@@ -50,6 +50,18 @@ public class EmpleadoController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/search")
+    @Operation(summary = "Buscar empleados por término")
+    public ResponseEntity<Page<EmpleadoResponse>> search(
+            @RequestParam("q") String query,
+            Pageable pageable) {
+        log.info("GET /api/v1/empleados/search?q={} - Buscando empleados", query);
+        Page<Empleado> empleados = empleadoService.search(query, pageable);
+        Page<EmpleadoResponse> response = empleados.map(EmpleadoMapper::toResponse);
+        log.info("Se encontraron {} empleados para búsqueda '{}'", response.getContent().size(), query);
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/{id}")
     @Operation(summary = "Obtener empleado por ID")
     public ResponseEntity<EmpleadoResponse> findById(@PathVariable Integer id) {

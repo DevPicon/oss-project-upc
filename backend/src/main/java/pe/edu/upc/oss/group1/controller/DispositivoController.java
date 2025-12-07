@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.oss.group1.dto.mapper.DispositivoMapper;
 import pe.edu.upc.oss.group1.dto.request.DispositivoRequest;
+import pe.edu.upc.oss.group1.dto.request.DispositivoEstadoRequest;
 import pe.edu.upc.oss.group1.dto.response.DispositivoResponse;
 import pe.edu.upc.oss.group1.entity.Dispositivo;
 import pe.edu.upc.oss.group1.service.DispositivoService;
@@ -109,6 +110,18 @@ public class DispositivoController {
         Dispositivo updated = dispositivoService.update(id, dispositivo);
         DispositivoResponse response = DispositivoMapper.toResponse(updated);
         log.info("Dispositivo actualizado exitosamente con ID: {}", id);
+        return ResponseEntity.ok(response);
+    }
+
+    @PatchMapping("/{id}/estado")
+    @Operation(summary = "Actualizar estado de dispositivo")
+    public ResponseEntity<DispositivoResponse> updateEstado(
+            @PathVariable Integer id,
+            @Valid @RequestBody DispositivoEstadoRequest request) {
+        log.info("PATCH /api/v1/dispositivos/{}/estado - Actualizando estado", id);
+        Dispositivo updated = dispositivoService.updateEstado(id, request.getEstadoId(), request.getObservacion());
+        DispositivoResponse response = DispositivoMapper.toResponse(updated);
+        log.info("Estado de dispositivo actualizado exitosamente. ID: {}", id);
         return ResponseEntity.ok(response);
     }
 
