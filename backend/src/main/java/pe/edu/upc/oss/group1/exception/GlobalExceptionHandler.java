@@ -129,6 +129,17 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
+        // Ignorar ClientAbortException (conexión cerrada por el cliente)
+        if (ex.getClass().getName().contains("ClientAbortException")) {
+            log.debug("Cliente abortó la conexión: {}", ex.getMessage());
+            return null;
+        }
+
+        // Manejar NoResourceFoundException (404 para estáticos) sin loggear error
+        if (ex.getClass().getName().contains("NoResourceFoundException")) {
+            return ResponseEntity.notFound().build();
+        }
+
         log.error("Error interno no manejado: ", ex);
 
         ErrorResponse error = ErrorResponse.builder()
