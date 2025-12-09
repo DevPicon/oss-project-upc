@@ -143,6 +143,10 @@ public class AsignacionDispositivoService {
                     throw new BusinessValidationException("El dispositivo ya está asignado");
                 });
 
+        // Ensure full entities are set to avoid issues with mappers accessing null fields
+        asignacion.setEmpleado(empleado);
+        asignacion.setDispositivo(dispositivo);
+
         CatEstadoAsignacion estadoActiva = estadoAsignacionRepository.findByCodigo("ACTIVA")
                 .orElseThrow(() -> new ResourceNotFoundException("Estado ACTIVA no encontrado"));
 
@@ -158,7 +162,7 @@ public class AsignacionDispositivoService {
         historialService.registrarAsignacion(dispositivo, empleado, asignacion.getUsuarioAsigna());
 
         log.info("Asignación creada exitosamente con ID: {}", saved.getId());
-        return saved;
+        return findByIdWithRelations(saved.getId());
     }
 
     /**

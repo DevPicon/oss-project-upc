@@ -95,12 +95,17 @@ public class Empleado {
      * Retorna el nombre completo del empleado concatenando nombre y apellidos.
      */
     public String getNombreCompleto() {
-        StringBuilder nombreCompleto = new StringBuilder(nombre);
-        nombreCompleto.append(" ").append(apellidoPaterno);
+        StringBuilder nombreCompleto = new StringBuilder();
+        if (nombre != null) {
+            nombreCompleto.append(nombre);
+        }
+        if (apellidoPaterno != null) {
+            nombreCompleto.append(" ").append(apellidoPaterno);
+        }
         if (apellidoMaterno != null && !apellidoMaterno.isBlank()) {
             nombreCompleto.append(" ").append(apellidoMaterno);
         }
-        return nombreCompleto.toString();
+        return nombreCompleto.toString().trim();
     }
 
     /**

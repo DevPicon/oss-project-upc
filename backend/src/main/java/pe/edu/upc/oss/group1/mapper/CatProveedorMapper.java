@@ -32,6 +32,9 @@ public class CatProveedorMapper {
      * Convierte un Entity a Response DTO.
      */
     public static CatProveedorResponse toResponse(CatProveedor entity) {
+        if (entity == null) {
+            return null;
+        }
         return CatProveedorResponse.builder()
                 .id(entity.getId())
                 .codigo(entity.getCodigo())

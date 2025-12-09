@@ -30,6 +30,9 @@ public class CatTipoDispositivoMapper {
      * Convierte un Entity a Response DTO.
      */
     public static CatTipoDispositivoResponse toResponse(CatTipoDispositivo entity) {
+        if (entity == null) {
+            return null;
+        }
         return CatTipoDispositivoResponse.builder()
                 .id(entity.getId())
                 .codigo(entity.getCodigo())
