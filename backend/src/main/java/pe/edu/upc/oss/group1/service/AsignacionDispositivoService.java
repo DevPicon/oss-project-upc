@@ -162,7 +162,8 @@ public class AsignacionDispositivoService {
         historialService.registrarAsignacion(dispositivo, empleado, asignacion.getUsuarioAsigna());
 
         log.info("Asignación creada exitosamente con ID: {}", saved.getId());
-        return findByIdWithRelations(saved.getId());
+        return asignacionRepository.findByIdWithRelations(saved.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + saved.getId()));
     }
 
     /**
@@ -171,7 +172,8 @@ public class AsignacionDispositivoService {
     public AsignacionDispositivo registrarDevolucion(Integer asignacionId, String observaciones, Integer usuarioRecibeId) {
         log.info("Registrando devolución de asignación ID: {}", asignacionId);
 
-        AsignacionDispositivo asignacion = findByIdWithRelations(asignacionId);
+        AsignacionDispositivo asignacion = asignacionRepository.findByIdWithRelations(asignacionId)
+                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + asignacionId));
 
         if (!asignacion.isActiva()) {
             throw new BusinessValidationException("La asignación no está activa");
@@ -207,7 +209,8 @@ public class AsignacionDispositivoService {
     public void cancelar(Integer asignacionId, String motivo) {
         log.info("Cancelando asignación ID: {}", asignacionId);
 
-        AsignacionDispositivo asignacion = findByIdWithRelations(asignacionId);
+        AsignacionDispositivo asignacion = asignacionRepository.findByIdWithRelations(asignacionId)
+                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + asignacionId));
 
         if (!asignacion.isActiva()) {
             throw new BusinessValidationException("La asignación no está activa");
