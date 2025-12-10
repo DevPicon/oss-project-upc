@@ -108,6 +108,7 @@ class AsignacionDispositivoServiceTest {
         when(estadoAsignacionRepository.findByCodigo("ACTIVA")).thenReturn(Optional.of(estadoActiva));
         when(estadoDispositivoRepository.findByCodigo("ASIGNADO")).thenReturn(Optional.of(estadoAsignado));
         when(asignacionRepository.save(any(AsignacionDispositivo.class))).thenReturn(asignacion);
+        when(asignacionRepository.findByIdWithRelations(any())).thenReturn(Optional.of(asignacion));
 
         // Act
         AsignacionDispositivo result = asignacionService.crear(asignacion);
