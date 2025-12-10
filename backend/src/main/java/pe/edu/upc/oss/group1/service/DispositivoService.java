@@ -177,7 +177,8 @@ public class DispositivoService {
     public Dispositivo updateEstado(Integer id, Integer estadoId, String observacion) {
         log.info("Actualizando estado de dispositivo ID: {} a Estado ID: {}", id, estadoId);
 
-        Dispositivo existing = findById(id);
+        Dispositivo existing = dispositivoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Dispositivo no encontrado con ID: " + id));
 
         CatEstadoDispositivo nuevoEstado = catEstadoDispositivoRepository.findById(estadoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Estado de dispositivo no encontrado con ID: " + estadoId));

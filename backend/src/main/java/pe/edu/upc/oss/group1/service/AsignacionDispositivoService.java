@@ -30,6 +30,8 @@ import java.util.List;
 @Slf4j
 public class AsignacionDispositivoService {
 
+    private static final String ASIGNACION_NOT_FOUND_MSG = "Asignación no encontrada con ID: ";
+
     private final AsignacionDispositivoRepository asignacionRepository;
     private final EmpleadoService empleadoService;
     private final DispositivoService dispositivoService;
@@ -71,7 +73,7 @@ public class AsignacionDispositivoService {
     public AsignacionDispositivo findById(Integer id) {
         log.debug("Buscando asignación con ID: {}", id);
         return asignacionRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException(ASIGNACION_NOT_FOUND_MSG + id));
     }
 
     /**
@@ -81,7 +83,7 @@ public class AsignacionDispositivoService {
     public AsignacionDispositivo findByIdWithRelations(Integer id) {
         log.debug("Buscando asignación ID {} con relaciones", id);
         return asignacionRepository.findByIdWithRelations(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException(ASIGNACION_NOT_FOUND_MSG + id));
     }
 
     /**
@@ -163,7 +165,7 @@ public class AsignacionDispositivoService {
 
         log.info("Asignación creada exitosamente con ID: {}", saved.getId());
         return asignacionRepository.findByIdWithRelations(saved.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + saved.getId()));
+                .orElseThrow(() -> new ResourceNotFoundException(ASIGNACION_NOT_FOUND_MSG + saved.getId()));
     }
 
     /**
@@ -173,7 +175,7 @@ public class AsignacionDispositivoService {
         log.info("Registrando devolución de asignación ID: {}", asignacionId);
 
         AsignacionDispositivo asignacion = asignacionRepository.findByIdWithRelations(asignacionId)
-                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + asignacionId));
+                .orElseThrow(() -> new ResourceNotFoundException(ASIGNACION_NOT_FOUND_MSG + asignacionId));
 
         if (!asignacion.isActiva()) {
             throw new BusinessValidationException("La asignación no está activa");
@@ -210,7 +212,7 @@ public class AsignacionDispositivoService {
         log.info("Cancelando asignación ID: {}", asignacionId);
 
         AsignacionDispositivo asignacion = asignacionRepository.findByIdWithRelations(asignacionId)
-                .orElseThrow(() -> new ResourceNotFoundException("Asignación no encontrada con ID: " + asignacionId));
+                .orElseThrow(() -> new ResourceNotFoundException(ASIGNACION_NOT_FOUND_MSG + asignacionId));
 
         if (!asignacion.isActiva()) {
             throw new BusinessValidationException("La asignación no está activa");

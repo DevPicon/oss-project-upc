@@ -12,7 +12,6 @@ import pe.edu.upc.oss.group1.entity.catalogo.CatEstadoDispositivo;
 import pe.edu.upc.oss.group1.entity.catalogo.CatEstadoReemplazo;
 import pe.edu.upc.oss.group1.entity.catalogo.CatMotivoReemplazo;
 import pe.edu.upc.oss.group1.exception.BusinessValidationException;
-import pe.edu.upc.oss.group1.exception.ResourceNotFoundException;
 import pe.edu.upc.oss.group1.repository.AsignacionDispositivoRepository;
 import pe.edu.upc.oss.group1.repository.ReemplazoDispositivoRepository;
 import pe.edu.upc.oss.group1.repository.catalogo.CatEstadoAsignacionRepository;
